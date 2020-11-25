@@ -1,0 +1,195 @@
+﻿<Window x:Class="RungeKutta.MainWindow"
+       xmlns:local="clr-namespace:RungeKutta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        AllowsTransparency="True" Background="Transparent"
+        Title="" Height="600" Width="1300">
+
+    <Border Margin="10"  BorderThickness="0.5">
+        <Border.Effect>
+            <DropShadowEffect Color="Black"
+                          Direction="320"
+                          BlurRadius="15"
+                          ShadowDepth="3" />
+        </Border.Effect>
+
+        <DockPanel LastChildFill="True" Background="#1A202A" MouseLeftButtonDown="MouseWindow"  Height="580" VerticalAlignment="Bottom">
+            <materialDesign:DialogHost  x:Name="MyDialogHost" BorderBrush="{DynamicResource MaterialDesignDivider}">
+                <materialDesign:DialogHost.DialogContent>
+                    <Grid Width="300" Height="150" HorizontalAlignment="Center">
+
+                        <StackPanel Orientation="Horizontal" Margin="15">
+                            <materialDesign:PackIcon x:Name="iconMessage" Foreground="#1A202A" Width="50" Height="50"/>
+                            <TextBlock x:Name="messageContent" Foreground="Gray" Width="200" Margin="15 5" TextWrapping="Wrap">
+
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
+
+                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Margin="4" VerticalAlignment="Center">
+                                Aceptar
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:DialogHost.DialogContent>
+                <Grid Height="580"   VerticalAlignment="Top" Width="1280">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+
+
+                    <Grid Grid.Row="0"   Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                        Style="{StaticResource MaterialDesignSubtitle1TextBlock}"  Foreground="#7A6CDE"
+                                   >
+                        
+                        Método Runge Kutta
+                            
+
+                        </TextBlock>
+                        <Button Grid.Column="1" Height="30" Width="30"
+                         Style="{StaticResource MaterialDesignIconButton}"
+                        Foreground="#4B5566"
+                        ToolTip="MaterialDesignIconForegroundButton" Click="btnMinimizeWindow">
+                            <materialDesign:PackIcon Kind="WindowMinimize" />
+                        </Button>
+                        <Button Grid.Column="2" Height="30" Width="30"
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        Foreground="#4B5566"
+                         Click="btnCloseWindow" >
+                            <materialDesign:PackIcon Kind="WindowClose" />
+                        </Button>
+
+                    </Grid>
+
+
+
+                    <Grid Grid.Row="1"  Height="530" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="400" />
+                            <ColumnDefinition Width="1*" />
+
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Height="auto" Name="Form">
+
+
+                            <TextBox
+                            x:Name="MathExpression"
+                            materialDesign:HintAssist.Hint="Ingrese la expresión"
+                           materialDesign:HintAssist.HelperText="La expresión de la función"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#7A6CDE"
+                            Foreground="#9EA1E7"
+                            Margin="10"
+                            BorderBrush="#262D37"/>
+
+                            <TextBox
+                            x:Name="InitialValueX"
+                            materialDesign:HintAssist.Hint="Valor de X"
+                           materialDesign:HintAssist.HelperText="Valor inicial de x"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#7A6CDE"
+                            Foreground="#9EA1E7"
+                            Margin="10, 30"
+                            BorderBrush="#262D37"
+                            PreviewTextInput="NumberValidationTextBox"/>
+                            <TextBox
+                            x:Name="InitialValueY"
+                            materialDesign:HintAssist.Hint="Valor de Y"
+                           materialDesign:HintAssist.HelperText="Valor inicial de y"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#7A6CDE"
+                            Foreground="#9EA1E7"
+                            Margin="10,30"
+                            BorderBrush="#262D37" 
+                            PreviewTextInput="NumberValidationTextBox" />
+                            <TextBox
+                            x:Name="Increment"
+                            materialDesign:HintAssist.Hint="Valor de h"
+                           materialDesign:HintAssist.HelperText="Valor del incremento"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#7A6CDE"
+                            Foreground="#9EA1E7"
+                            Margin="10, 30"
+                            BorderBrush="#262D37" 
+                            PreviewTextInput="NumberValidationTextBox"/>
+
+
+                            <Button HorizontalAlignment="Center" Height="40" Margin="20" Click="ComputeRungeKuttaMethod">Calcular</Button>
+                            <TextBlock Height="10" Margin="10,110, 0,0" Foreground="#53585f" TextDecorations="Underline"  FontSize="9"><Run Text="Develop by Cesar Nezahuatl and Luis Armando for to the subject Mathematics for Engineering II"/></TextBlock>
+                         
+                       
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Name="ContentTable">
+                            <StackPanel>
+                                <Expander HorizontalAlignment="Stretch" Header="Tabla de datos" Background="Transparent" Foreground="White">
+                                    <StackPanel Orientation="Vertical" 
+                                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                                        <materialDesign:Card Background="Transparent"
+                                                materialDesign:ShadowAssist.ShadowDepth="Depth4">
+                                            <DataGrid Name="resutlTable"
+                                                  Height="auto"  
+                                                 Margin="30"
+                                                  materialDesign:ShadowAssist.ShadowDepth="Depth4" 
+                                                  Background="#353E4C"  
+                                                  Foreground="white" >
+
+                                            </DataGrid>
+
+
+                                        </materialDesign:Card>
+
+                                    </StackPanel>
+                                </Expander>
+                                <Separator Background="#262D37"></Separator>
+                                <Expander
+                                HorizontalAlignment="Stretch"
+                                Header="Gráfica"
+                               Background="Transparent" Foreground="White">
+
+                                    <StackPanel
+                                    Orientation="Vertical"
+                                    TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                                    Margin="24,8,24,16">
+                                        <TextBlock Margin="10" Name="nameFunction" Text="" TextAlignment="Center" HorizontalAlignment="Center"
+                                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}"  Foreground="#7A6CDE"></TextBlock>
+                                        <StackPanel Grid.Column="2" Name="ContentTodrawGraphic">
+                                            <oxy:PlotView x:Name="drawGraphic"  Height="313"  Background="Transparent"  
+                                                  Foreground="white"  >
+                                            </oxy:PlotView>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </StackPanel>
+
+
+                    </Grid>
+                </Grid>
+            </materialDesign:DialogHost>
+
+
+
+        </DockPanel>
+    </Border>
+</Window>
