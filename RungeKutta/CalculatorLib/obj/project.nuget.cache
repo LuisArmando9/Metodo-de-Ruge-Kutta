@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "rgNjdix5uk/Dqf3Ak4ttpdtQMaD6eX+KS3RGf6TJXqMlF99dN33eOpuZExkKz8p4+RkCdvaaRqL0M0m9pP5+jQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Armando\\Documents\\Universidad\\MTII\\RungeKutta\\RungeKutta\\CalculatorLib\\CalculatorLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Armando\\.nuget\\packages\\materialdesignthemes\\4.0.0-ci2273\\materialdesignthemes.4.0.0-ci2273.nupkg.sha512"
+  ],
+  "logs": []
+}

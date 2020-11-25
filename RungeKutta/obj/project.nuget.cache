@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "pgd0FDxaOdoCi7nOm2ykld0z0qIK3NQYqVH9+nj3CONT7UggzKIij5ii6EDR/3bM7Mvxp1NkNxzuHFQjguiEBw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Armando\\Documents\\Universidad\\MTII\\RungeKutta\\RungeKutta\\RungeKutta.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Armando\\.nuget\\packages\\controlzex\\4.2.2\\controlzex.4.2.2.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\dialoghostwpf\\1.0.0\\dialoghostwpf.1.0.0.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\mahapps.metro\\2.0.0-alpha0748\\mahapps.metro.2.0.0-alpha0748.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\materialdesigncolors\\2.0.0-ci2273\\materialdesigncolors.2.0.0-ci2273.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\materialdesignthemes\\4.0.0-ci2273\\materialdesignthemes.4.0.0-ci2273.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\materialdesignthemes.mahapps\\0.1.6-ci2273\\materialdesignthemes.mahapps.0.1.6-ci2273.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\materialdesignthemes.mahapps.163\\0.0.111\\materialdesignthemes.mahapps.163.0.0.111.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\oxyplot.core\\2.1.0-preview1\\oxyplot.core.2.1.0-preview1.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\oxyplot.wpf\\2.1.0-preview1\\oxyplot.wpf.2.1.0-preview1.nupkg.sha512",
+    "C:\\Users\\Armando\\.nuget\\packages\\oxyplot.wpf.shared\\2.1.0-preview1\\oxyplot.wpf.shared.2.1.0-preview1.nupkg.sha512"
+  ],
+  "logs": []
+}
